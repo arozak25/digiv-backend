@@ -20,7 +20,7 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/user")
-    public WebResponse createUser(CreateUserRequest request){
+    public WebResponse<User> createUser(CreateUserRequest request){
 
         User response = userService.create(request);
 
