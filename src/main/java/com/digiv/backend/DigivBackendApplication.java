@@ -7,7 +7,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-@EntityScan
+@EntityScan("com.digiv.backend.entity")
 public class DigivBackendApplication {
 
 	public static void main(String[] args) {
