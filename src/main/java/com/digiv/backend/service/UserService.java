@@ -2,6 +2,7 @@ package com.digiv.backend.service;
 
 import com.digiv.backend.entity.User;
 import com.digiv.backend.model.CreateUserRequest;
+import com.digiv.backend.model.response.service.CreateUserServiceResponse;
 import com.digiv.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public User create(@Valid CreateUserRequest request){
+    public CreateUserServiceResponse create(@Valid CreateUserRequest request){
         User user = User.builder()
                 .email(request.getEmail())
                 .fullName(request.getFullName())
@@ -31,6 +32,10 @@ public class UserService {
 
         userRepository.save(user);
 
-        return user;
+        return CreateUserServiceResponse.builder()
+                .id(user.getId())
+                .email(request.getEmail())
+                .fullName(request.getFullName())
+                .build();
     }
 }

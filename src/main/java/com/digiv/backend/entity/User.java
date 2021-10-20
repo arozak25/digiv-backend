@@ -2,6 +2,7 @@ package com.digiv.backend.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -11,7 +12,7 @@ import javax.persistence.*;
  * @author Abdul Rozak
  * @since 19/10/21
  */
-@Entity
+@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
